@@ -1,4 +1,3 @@
-const obj = {
-  '/service/a': './api/service.json'
+module.exports = {
+  '/service/a': require('./api/service.json')
 }
-export default obj

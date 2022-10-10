@@ -1,7 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
-// console.log('(process.env', process.env)
-const mockProxy = import('@/mock/index.js')
-console.log('mockProxy', mockProxy)
+const mockProxy = require('./src/mock/index.js')
 module.exports = defineConfig({
   lintOnSave:false,
   transpileDependencies: true,
@@ -11,9 +9,17 @@ module.exports = defineConfig({
         throw new Error('webpack-dev-server is not defined');
       }
 
-      devServer.app.post('/service/a', (_, response) => {
-        response.send({ custom: 'response1' });
-      });
+      const keys = Object.keys(mockProxy)
+
+      keys.forEach(item => {
+        devServer.app.get(item, (_, response) => {
+          response.send(mockProxy[item])
+        })
+
+        devServer.app.post(item, (_, response) => {
+          response.send(mockProxy[item])
+        })
+      })
 
       return middlewares
     }
