@@ -1,5 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
-const mockProxy = require('./src/mock/index.js')
+const mockProxy = require('./mock/index.js')
 module.exports = defineConfig({
   lintOnSave:false,
   transpileDependencies: true,
