@@ -5,7 +5,7 @@
 <script>
 import { getData } from '@/api'
 export default {
-  name: 'home',
+  name: 'home-page',
   data() {
     return {
       data: 'home'
@@ -17,7 +17,7 @@ export default {
   methods: {
     getdd(data) {
       getData(data).then(data => {
-        // console.log('data', data)
+        console.log('data', data)
       }).catch(err => {
         console.log('err', err)
       })

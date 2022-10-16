@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { preApi } from '../../config/common'
 const service = axios.create({
-  baseURL: '',
+  baseURL: preApi(),
   timeout: 5000
 })
 
