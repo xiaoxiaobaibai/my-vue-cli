@@ -27,7 +27,10 @@ module.exports = defineConfig({
       '/service/a': {
         target: 'http://jsonplaceholder.typicode.com/posts',
         ws: true,
-        changeOrigin: true
+        changeOrigin: true,
+        pathRewrite: {
+          '^/service/a': ''
+        }
       }
     }
   }
